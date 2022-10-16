@@ -43,3 +43,9 @@ You can preview the production build with `npm run preview`.
 ## Benefits
 - easy setup of project
 - nice scaffolding including ESLint, Prettier, TypeScript, Vite, and Playwright
+- automatic registration of service-workers
+- own [module for service-workers](https://kit.svelte.dev/docs/modules#$service-worker)
+- comes with good lighthouse score out of the box (Performance 100, a11y 96, Best Practices 100, SEO 78)
+
+## Drawbacks
+- no default service worker, needs to be written manually
