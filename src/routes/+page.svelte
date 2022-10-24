@@ -1,2 +1,3 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<h1>Willkommen bei SvelteKit</h1>
+<p>Besuche <a href="https://kit.svelte.dev">kit.svelte.dev</a> um die Doku zu lesen!</p>
+<a href="/iwii">Zur IWII-Seite</a>
