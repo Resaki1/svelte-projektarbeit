@@ -1,114 +1,178 @@
-<script>
+<script lang="ts">
 	import {
 		Home,
 		Megaphone,
 		CalendarDays,
-		Pencil,
-		ClipboardList,
-		Book,
 		Download,
-		Building,
 		User,
 		Milestone,
 		Info,
-		List,
 		Utensils,
 		ExternalLink
 	} from 'lucide-svelte';
+
+	type MenuItems = {
+		title: string;
+		icon: any;
+		subItems: {
+			title: string;
+			href: string;
+		}[];
+	}[];
+
+	const menuItems: MenuItems = [
+		{
+			title: 'Übersicht',
+			icon: Home,
+			subItems: [
+				{
+					title: 'Eigene Arbeiten',
+					href: '/'
+				}
+			]
+		},
+		{
+			title: 'News',
+			icon: Megaphone,
+			subItems: [
+				{
+					title: 'Schwarzes Brett',
+					href: '/'
+				},
+				{
+					title: 'Fachschaft IWI',
+					href: '/'
+				}
+			]
+		},
+		{
+			title: `Stunden\u00ADpläne`,
+			icon: CalendarDays,
+			subItems: [
+				{
+					title: 'Editor',
+					href: '/'
+				},
+				{
+					title: 'Persönlicher Plan',
+					href: '/'
+				}
+			]
+		},
+		{
+			title: 'Down\u00ADloads',
+			icon: Download,
+			subItems: [
+				{
+					title: 'Prüfungspläne',
+					href: '/'
+				},
+				{
+					title: 'Andere Ausarbeitungen',
+					href: '/'
+				},
+				{
+					title: 'Anleitungen',
+					href: '/'
+				},
+				{
+					title: 'Anträge und Formulare',
+					href: '/'
+				}
+			]
+		},
+		{
+			title: 'Sprech\u00ADzeiten',
+			icon: User,
+			subItems: [
+				{
+					title: 'Professoren',
+					href: '/'
+				},
+				{
+					title: 'Sekretariat',
+					href: '/'
+				}
+			]
+		},
+		{
+			title: 'Erstis',
+			icon: Milestone,
+			subItems: [
+				{
+					title: 'Erstsemester-FAQ',
+					href: '/'
+				},
+				{
+					title: 'Corona-App',
+					href: '/'
+				}
+			]
+		},
+		{
+			title: 'Infos',
+			icon: Info,
+			subItems: [
+				{
+					title: 'Formulare',
+					href: '/'
+				},
+				{
+					title: 'Gebäudepläne',
+					href: '/'
+				}
+			]
+		},
+		{
+			title: 'Mensen',
+			icon: Utensils,
+			subItems: [
+				{
+					title: 'Mensa Moltke',
+					href: '/'
+				},
+				{
+					title: 'Cafeteria Moltkestraße 30',
+					href: '/'
+				}
+			]
+		},
+		{
+			title: 'Links',
+			icon: ExternalLink,
+			subItems: [
+				{
+					title: 'Intranet der Wirtschaftsinformatik',
+					href: '/'
+				},
+				{
+					title: 'Ilias-Server',
+					href: '/'
+				}
+			]
+		}
+	];
 </script>
 
 <nav>
 	<ul class="navbar">
-		<li>
-			<div class="navbar__item">
-				<Home />Übersicht
-				<ul class="navbar__menu-modal" role="menu">
-					<li role="menuitem"><a href="/">Eigene Arbeiten</a></li>
-				</ul>
-			</div>
-		</li>
-		<hr />
-		<li>
-			<div class="navbar__item">
-				<Megaphone />News
-				<ul class="navbar__menu-modal" role="menu">
-					<li role="menuitem"><a href="/">Schwarzes Brett</a></li>
-					<li role="menuitem"><a href="/">Fachschaft IWI</a></li>
-				</ul>
-			</div>
-		</li>
-		<hr />
-		<li>
-			<div class="navbar__item">
-				<CalendarDays />Stunden&shy;pläne
-				<ul class="navbar__menu-modal" role="menu">
-					<li role="menuitem"><a href="/">Editor</a></li>
-					<li role="menuitem"><a href="/">Persönlicher Plan</a></li>
-				</ul>
-			</div>
-		</li>
-		<hr />
-		<li>
-			<div class="navbar__item">
-				<Download />Down&shy;loads
-				<ul class="navbar__menu-modal" role="menu">
-					<li role="menuitem"><a href="/">Prüfungspläne</a></li>
-					<li role="menuitem"><a href="/">Andere Ausarbeitungen</a></li>
-					<li role="menuitem"><a href="/">Anleitungen</a></li>
-					<li role="menuitem"><a href="/">Anträge und Formulare</a></li>
-				</ul>
-			</div>
-		</li>
-		<hr />
-		<li>
-			<div class="navbar__item">
-				<User />Sprech&shy;zeiten
-				<ul class="navbar__menu-modal" role="menu">
-					<li role="menuitem"><a href="/">Professoren</a></li>
-					<li role="menuitem"><a href="/">Sekretariat</a></li>
-				</ul>
-			</div>
-		</li>
-		<hr />
-		<li>
-			<div class="navbar__item">
-				<Milestone /> Erstis
-				<ul class="navbar__menu-modal" role="menu">
-					<li role="menuitem"><a href="/">Erstsemester-FAQ</a></li>
-					<li role="menuitem"><a href="/">Corona-App</a></li>
-				</ul>
-			</div>
-		</li>
-		<hr />
-		<li>
-			<div class="navbar__item">
-				<Info />Infos
-				<ul class="navbar__menu-modal" role="menu">
-					<li role="menuitem"><a href="/">Formulare</a></li>
-					<li role="menuitem"><a href="/">Gebäudepläne</a></li>
-				</ul>
-			</div>
-		</li>
-		<hr />
-		<li>
-			<div class="navbar__item">
-				<Utensils />Mensen
-				<ul class="navbar__menu-modal" role="menu">
-					<li role="menuitem"><a href="/">Mensa Moltke</a></li>
-					<li role="menuitem"><a href="/">Cafeteria Moltkestraße 30</a></li>
-				</ul>
-			</div>
-		</li>
-		<hr />
-		<li>
-			<div class="navbar__item">
-				<ExternalLink />Links
-				<ul class="navbar__menu-modal" role="menu">
-					<li role="menuitem"><a href="/">Intranet der Wirtschaftsinformatik</a></li>
-					<li role="menuitem"><a href="/">Ilias-Server</a></li>
-				</ul>
-			</div>
-		</li>
+		{#each menuItems as item, index}
+			<li>
+				<div class="navbar__item">
+					<svelte:component this={item.icon} />{item.title}
+					<ul class="navbar__menu-modal" role="menu">
+						{#each item.subItems as subItem}
+							<li>
+								<a href={subItem.href}>{subItem.title}</a>
+							</li>
+						{/each}
+					</ul>
+				</div>
+			</li>
+			{#if index < menuItems.length - 1}
+				<hr />
+			{/if}
+		{/each}
 	</ul>
 </nav>
 
@@ -141,6 +205,7 @@
 			justify-content: center;
 
 			.navbar__item {
+				position: relative;
 				display: flex;
 				flex-direction: column;
 				align-items: center;
@@ -157,7 +222,7 @@
 				list-style: none;
 				display: none;
 				position: absolute;
-				left: 6rem;
+				left: 5rem;
 				top: 0;
 				background: #1e1e1e;
 				border: 1px solid rgb(56, 56, 56);
