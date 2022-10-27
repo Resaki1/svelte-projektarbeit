@@ -37,10 +37,10 @@ You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
 
-
 # Projektarbeit
 
 ## Benefits
+
 - easy setup of project
 - nice scaffolding including ESLint, Prettier, TypeScript, Vite, and Playwright
 - automatic registration of service-workers
@@ -49,4 +49,6 @@ You can preview the production build with `npm run preview`.
 - Server-only modules to hide sensitive data, e.g., API-keys; SvelteKit errors automatically when trying to access these modules
 
 ## Drawbacks
+
 - no default service worker, needs to be written manually
+- all pages must be called "+page.svelte" which makes it confusing once you have more than one (which is usually the case)

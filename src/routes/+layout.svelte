@@ -27,7 +27,7 @@
 			subItems: [
 				{
 					title: 'Eigene Arbeiten',
-					href: '/'
+					href: '/iwii/faces/intranet/student'
 				}
 			]
 		},
@@ -37,7 +37,7 @@
 			subItems: [
 				{
 					title: 'Schwarzes Brett',
-					href: '/'
+					href: '/iwii/info/bulletinboard/INFM'
 				},
 				{
 					title: 'Fachschaft IWI',
