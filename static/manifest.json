@@ -1,17 +1,17 @@
 {
-    "short_name": "sveltekit-pwa",
-    "name": "SvelteKit PWA",
-    "start_url": "/",
-    "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#64378B",
-    "icons": [
-      {
-        "src": "logo_512.png",
-        "type": "image/png",
-        "sizes": "512x512"
-      }
-    ],
-    "scope": "/",
-    "description": "A SvelteKit PWA"
+	"short_name": "iwi-intranet",
+	"name": "HKA IWI Intranet",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#ffffff",
+	"theme_color": "#64378B",
+	"icons": [
+		{
+			"src": "logo_512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	],
+	"scope": "/",
+	"description": "Das Intranet der Fakultät IWI der Hochschule Karlsruhe - Technik und Wirtschaft"
 }

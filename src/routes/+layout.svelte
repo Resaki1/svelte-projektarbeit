@@ -193,7 +193,8 @@
 		justify-content: start;
 		box-sizing: border-box;
 		text-overflow: ellipsis;
-		background: #1e1e1e;
+		background: var(--color-gray);
+		border-right: 1px solid var(--color-gray-light);
 
 		> li {
 			position: relative;
@@ -203,6 +204,7 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
+			font-size: 0.875rem;
 
 			.navbar__item {
 				position: relative;
@@ -224,8 +226,8 @@
 				position: absolute;
 				left: 5rem;
 				top: 0;
-				background: #1e1e1e;
-				border: 1px solid rgb(56, 56, 56);
+				background: var(--color-gray);
+				border: 1px solid var(--color-gray-light);
 				padding: 0.5rem;
 				z-index: 1;
 				flex-direction: column;
@@ -268,12 +270,5 @@
 			height: 1px;
 			background: rgb(56, 56, 56);
 		}
-	}
-
-	:global(body) {
-		font-weight: 400;
-		color: rgba(255, 255, 255, 0.87);
-		margin-left: 6rem;
-		background: #121212;
 	}
 </style>
