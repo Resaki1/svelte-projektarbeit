@@ -156,10 +156,11 @@
 
 <nav>
 	<ul class="navbar">
+		<img src="/hka-white.svg" height="60" width="72" alt="HKA Logo" />
 		{#each menuItems as item, index}
 			<li>
 				<div class="navbar__item">
-					<svelte:component this={item.icon} />{item.title}
+					<svelte:component this={item.icon} size="18" class="navbar__item-icon" />{item.title}
 					<ul class="navbar__menu-modal" role="menu">
 						{#each item.subItems as subItem}
 							<li>
@@ -180,6 +181,9 @@
 
 <style lang="scss">
 	.navbar {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 		height: 100vh;
 		width: 6rem;
 		position: fixed;
@@ -187,7 +191,7 @@
 		top: 0;
 		list-style: none;
 		margin: 0;
-		padding: 1rem 0;
+		padding: 0 0 1rem 0;
 		display: flex;
 		flex-direction: column;
 		justify-content: start;
