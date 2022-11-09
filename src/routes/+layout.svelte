@@ -47,7 +47,7 @@
 				{
 					title: 'Fachschaft IWI',
 					name: 'Nachrichten der Fachschaft IWI',
-					href: '/'
+					href: '/iwii/info/studentcouncil'
 				}
 			]
 		},
@@ -93,11 +93,13 @@
 			subItems: [
 				{
 					title: 'Professoren',
-					href: '/'
+					name: 'Sprechzeiten der Dozierenden',
+					href: '/iwii/info/consultationhours'
 				},
 				{
 					title: 'Sekretariat',
-					href: '/'
+					name: 'Öffnungszeiten Sekretariat',
+					href: '/iwii/info/officehours'
 				}
 			]
 		},
@@ -107,11 +109,13 @@
 			subItems: [
 				{
 					title: 'Erstsemester-FAQ',
-					href: '/'
+					name: 'Erstsemester-FAQ',
+					href: '/iwii/info/faqfirstsemester'
 				},
 				{
 					title: 'Corona-App',
-					href: '/'
+					name: 'Corona-Anwesenheitserfassung',
+					href: '/iwii/info/corona'
 				}
 			]
 		},
@@ -121,11 +125,13 @@
 			subItems: [
 				{
 					title: 'Formulare',
-					href: '/'
+					name: 'Anträge und Formulare',
+					href: '/iwii/info/downloads'
 				},
 				{
 					title: 'Gebäudepläne',
-					href: '/'
+					name: 'Räume',
+					href: '/iwii/info/buildings'
 				}
 			]
 		},
@@ -134,12 +140,14 @@
 			icon: Utensils,
 			subItems: [
 				{
-					title: 'Mensa Moltke',
-					href: '/'
+					title: 'Mensa Moltkestraße',
+					name: 'Mensa Moltkestraße',
+					href: '/iwii/info/canteen/2'
 				},
 				{
-					title: 'Cafeteria Moltkestraße 30',
-					href: '/'
+					title: 'Caféteria Moltkestraße 30',
+					name: 'Caféteria Moltkestraße 30',
+					href: '/iwii/info/canteen/7'
 				}
 			]
 		},
@@ -194,9 +202,6 @@
 					</ul>
 				</div>
 			</li>
-			<!-- {#if index < menuItems.length - 1}
-				<hr />
-			{/if} -->
 		{/each}
 	</ul>
 </nav>
@@ -259,7 +264,7 @@
 				justify-content: center;
 				text-align: center;
 				padding: 8px;
-				margin: 8px 0 4px 0;
+				margin: 16px 0 8px 0;
 				border-radius: 4px;
 				gap: 4px;
 
