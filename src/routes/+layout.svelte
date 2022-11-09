@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import {
 		Home,
 		Megaphone,
@@ -8,7 +9,8 @@
 		Milestone,
 		Info,
 		Utensils,
-		ExternalLink
+		ExternalLink,
+		LogIn
 	} from 'lucide-svelte';
 
 	type MenuItems = {
@@ -16,9 +18,12 @@
 		icon: any;
 		subItems: {
 			title: string;
+			name?: string;
 			href: string;
 		}[];
 	}[];
+
+	console.log(page);
 
 	const menuItems: MenuItems = [
 		{
@@ -27,6 +32,7 @@
 			subItems: [
 				{
 					title: 'Eigene Arbeiten',
+					name: 'Anmeldung und Noten im Intranet',
 					href: '/iwii/faces/intranet/student'
 				}
 			]
@@ -37,10 +43,12 @@
 			subItems: [
 				{
 					title: 'Schwarzes Brett',
+					name: 'Schwarzes Brett',
 					href: '/iwii/info/bulletinboard/INFM'
 				},
 				{
 					title: 'Fachschaft IWI',
+					name: 'Nachrichten der Fachschaft IWI',
 					href: '/'
 				}
 			]
@@ -152,9 +160,21 @@
 			]
 		}
 	];
+
+	let urls: { title: string; name?: string; href: string }[] = [];
+	menuItems.forEach((item) => {
+		item.subItems.forEach((subItem) => {
+			urls.push(subItem);
+		});
+	});
 </script>
 
 <nav>
+	<div class="layout-topbar">
+		<span>
+			{urls.find((url) => url.href === '/' + $page?.routeId)?.name}
+		</span>
+	</div>
 	<ul class="navbar">
 		<img src="/hka-white.svg" height="60" width="72" alt="HKA Logo" />
 		{#each menuItems as item, index}
@@ -180,6 +200,21 @@
 <slot />
 
 <style lang="scss">
+	.layout-topbar {
+		width: 100%;
+		height: 4rem;
+		padding: 0 2.5rem;
+		background: var(--color-gray);
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+
+		span {
+			font-size: 1.25rem;
+			font-weight: 600;
+		}
+	}
 	.navbar {
 		display: flex;
 		flex-direction: column;
@@ -209,6 +244,8 @@
 			flex-direction: column;
 			justify-content: center;
 			font-size: 0.875rem;
+			width: 100%;
+			box-sizing: border-box;
 
 			.navbar__item {
 				position: relative;
@@ -270,6 +307,7 @@
 
 		hr {
 			margin: 4px 1rem;
+			width: 4rem;
 			border: none;
 			height: 1px;
 			background: rgb(56, 56, 56);

@@ -3,7 +3,6 @@
 	export let data;
 </script>
 
-<h1>Schwarzes Brett Informatik (Master)</h1>
 <section>
 	<ul>
 		{#each data.news as newsItem}
