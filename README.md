@@ -52,3 +52,10 @@ You can preview the production build with `npm run preview`.
 
 - no default service worker, needs to be written manually
 - all pages must be called "+page.svelte" which makes it confusing once you have more than one (which is usually the case)
+
+## Lighthouse score comparison
+
+| hi                | Performance | Accessibility | Best Practices | SEO | PWA |
+| ----------------- | ----------- | ------------- | -------------- | --- | --- |
+| Official Intranet | 86          | 78            | 100            | 80  | no  |
+| SvelteKit         | 99          | 100           | 92             | 100 | yes |
