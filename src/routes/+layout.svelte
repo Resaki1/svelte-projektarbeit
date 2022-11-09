@@ -174,18 +174,19 @@
 		{urls.find((url) => url.href === '/' + $page?.routeId)?.name}
 	</title>
 </svelte:head>
-<nav>
-	<div class="layout-topbar">
-		<h1>
-			{urls.find((url) => url.href === '/' + $page?.routeId)?.name}
-		</h1>
-	</div>
-	<ul class="navbar">
-		<img src="/hka-white.svg" height="60" width="72" alt="HKA Logo" />
+<div class="layout-topbar">
+	<h1>
+		{urls.find((url) => url.href === '/' + $page?.routeId)?.name}
+	</h1>
+</div>
+<nav class="navbar">
+	<img src="/hka-white.svg" height="60" width="72" alt="HKA Logo" />
+	<ul>
 		{#each menuItems as item, index}
 			<li>
 				<div class="navbar__item">
-					<svelte:component this={item.icon} size="18" class="navbar__item-icon" />{item.title}
+					<svelte:component this={item.icon} size="18" class="navbar__item-icon" />
+					{item.title}
 					<ul class="navbar__menu-modal" role="menu">
 						{#each item.subItems as subItem}
 							<li>
@@ -195,9 +196,9 @@
 					</ul>
 				</div>
 			</li>
-			{#if index < menuItems.length - 1}
+			<!-- {#if index < menuItems.length - 1}
 				<hr />
-			{/if}
+			{/if} -->
 		{/each}
 	</ul>
 </nav>
@@ -229,22 +230,22 @@
 		position: fixed;
 		left: 0;
 		top: 0;
-		list-style: none;
-		margin: 0;
-		padding: 0 0 1rem 0;
-		display: flex;
-		flex-direction: column;
-		justify-content: start;
-		box-sizing: border-box;
-		text-overflow: ellipsis;
 		background: var(--color-gray);
 		border-right: 1px solid var(--color-gray-light);
 
-		> li {
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0 0 1rem 0;
+			width: 100%;
+			text-overflow: ellipsis;
+		}
+
+		li {
 			position: relative;
 			cursor: pointer;
 			padding: 0 1rem;
-			height: 72px;
+			height: fit-content;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
@@ -259,7 +260,7 @@
 				align-items: center;
 				justify-content: center;
 				text-align: center;
-				padding: 2px;
+				padding: 16px 8px;
 				border-radius: 4px;
 				gap: 4px;
 
@@ -307,6 +308,18 @@
 				.navbar__menu-modal {
 					display: flex;
 				}
+			}
+
+			&::after {
+				content: '';
+				position: absolute;
+				bottom: -0.25rem;
+				left: 1rem;
+				right: 0;
+				height: 0.5em;
+				border-top: 1px solid var(--color-gray-light);
+				z-index: -1;
+				width: 4rem;
 			}
 		}
 
