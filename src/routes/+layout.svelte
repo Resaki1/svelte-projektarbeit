@@ -169,11 +169,16 @@
 	});
 </script>
 
+<svelte:head>
+	<title>
+		{urls.find((url) => url.href === '/' + $page?.routeId)?.name}
+	</title>
+</svelte:head>
 <nav>
 	<div class="layout-topbar">
-		<span>
+		<h1>
 			{urls.find((url) => url.href === '/' + $page?.routeId)?.name}
-		</span>
+		</h1>
 	</div>
 	<ul class="navbar">
 		<img src="/hka-white.svg" height="60" width="72" alt="HKA Logo" />
@@ -210,7 +215,7 @@
 		align-items: center;
 		justify-content: space-between;
 
-		span {
+		h1 {
 			font-size: 1.25rem;
 			font-weight: 600;
 		}
