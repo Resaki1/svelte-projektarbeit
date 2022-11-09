@@ -23,8 +23,6 @@
 		}[];
 	}[];
 
-	console.log(page);
-
 	const menuItems: MenuItems = [
 		{
 			title: 'Übersicht',
@@ -183,7 +181,7 @@
 	<img src="/hka-white.svg" height="60" width="72" alt="HKA Logo" />
 	<ul>
 		{#each menuItems as item, index}
-			<li>
+			<li class="navbar__list-item">
 				<div class="navbar__item">
 					<svelte:component this={item.icon} size="18" class="navbar__item-icon" />
 					{item.title}
@@ -241,7 +239,7 @@
 			text-overflow: ellipsis;
 		}
 
-		li {
+		.navbar__list-item {
 			position: relative;
 			cursor: pointer;
 			padding: 0 1rem;
@@ -260,7 +258,8 @@
 				align-items: center;
 				justify-content: center;
 				text-align: center;
-				padding: 16px 8px;
+				padding: 8px;
+				margin: 8px 0 4px 0;
 				border-radius: 4px;
 				gap: 4px;
 
@@ -310,14 +309,14 @@
 				}
 			}
 
-			&::after {
+			&:not(:last-child)::after {
 				content: '';
 				position: absolute;
 				bottom: -0.25rem;
 				left: 1rem;
 				right: 0;
-				height: 0.5em;
-				border-top: 1px solid var(--color-gray-light);
+				height: 1px;
+				border-bottom: 1px solid var(--color-gray-light);
 				z-index: -1;
 				width: 4rem;
 			}
