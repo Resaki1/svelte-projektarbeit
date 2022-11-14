@@ -12,7 +12,7 @@
 </script>
 
 <main data-sveltekit-prefetch>
-	<div class="filters">
+	<div class="block">
 		<h2>Studiengänge</h2>
 		<p>
 			<label>
@@ -85,13 +85,16 @@
 	}
 
 	li,
-	.filters {
+	.block {
 		padding: 1rem;
 		background: #1e1e1e;
 		margin-bottom: 1rem;
+		box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%),
+			0 1px 3px 0 rgb(0 0 0 / 12%);
+		border-radius: 4px;
 	}
 
-	.filters {
+	.block {
 		margin: 2rem;
 	}
 
