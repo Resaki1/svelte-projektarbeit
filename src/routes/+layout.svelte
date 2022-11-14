@@ -42,7 +42,7 @@
 				{
 					title: 'Schwarzes Brett',
 					name: 'Schwarzes Brett',
-					href: '/iwii/info/bulletinboard/INFM'
+					href: '/iwii/info/bulletinboard'
 				},
 				{
 					title: 'Fachschaft IWI',
@@ -218,6 +218,7 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-between;
+		box-sizing: border-box;
 
 		h1 {
 			font-size: 1.25rem;
