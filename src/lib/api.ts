@@ -1,16 +1,33 @@
 const BASE_URI = 'http://www.iwi.hs-karlsruhe.de/iwii/REST';
 
-export const getBulletinBoard = async () => {
+type BulletinResponse = {
+	title: string;
+	subTitle: string;
+	courseOfStudies: string[];
+	publicationDate: string;
+	expirationDate: string;
+	content: string;
+	studentCouncil: boolean;
+	type: string;
+	deleteOnExpiration: boolean;
+	publicationTimestamp: string;
+	id: number;
+	idOwner: number;
+	nameOwner: string;
+	emailOwner: string;
+}[];
+
+export const getBulletinBoard = async (fetch: (url: string) => any): Promise<BulletinResponse> => {
 	return fetch(`${BASE_URI}/newsbulletinboard`)
-		.then((response) => response.body)
-		.then((rb) => {
+		.then((response: Response) => response.body)
+		.then((rb: any) => {
 			const reader = rb?.getReader();
 			return new ReadableStream({
 				start(controller) {
 					// The following function handles each data chunk
 					function push() {
 						// "done" is a Boolean and value a "Uint8Array"
-						reader?.read().then(({ done, value }) => {
+						reader?.read().then(({ done, value }: { done: boolean; value: any }) => {
 							// If there is no more data to read
 							if (done) {
 								controller.close();
@@ -26,12 +43,11 @@ export const getBulletinBoard = async () => {
 				}
 			});
 		})
-		.then((stream) =>
+		.then((stream: ReadableStream) =>
 			// Respond with our stream
 			new Response(stream, { headers: { 'Content-Type': 'text/html' } }).text()
 		)
-		.then((result) => {
-			// Do things with result
+		.then((result: string) => {
 			return JSON.parse(result);
 		});
 };

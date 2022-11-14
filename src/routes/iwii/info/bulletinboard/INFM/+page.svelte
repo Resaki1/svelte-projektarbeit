@@ -3,7 +3,7 @@
 	export let data;
 </script>
 
-<section>
+<main data-sveltekit-prefetch>
 	<ul>
 		{#each data.news as newsItem}
 			<li>
@@ -14,7 +14,7 @@
 			</li>
 		{/each}
 	</ul>
-</section>
+</main>
 
 <style lang="scss" scoped>
 	ul {
