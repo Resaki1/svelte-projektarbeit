@@ -11,65 +11,63 @@
 	};
 </script>
 
-<main data-sveltekit-prefetch>
-	<div class="block">
-		<h2>Studiengänge</h2>
-		<p>
-			<label>
-				<input
-					type="checkbox"
-					bind:group={courses}
-					name="courses"
-					value="INFB"
-					on:change={updateLocalStorage}
-				/>
-				INFB
-			</label>
-			<label>
-				<input
-					type="checkbox"
-					bind:group={courses}
-					name="courses"
-					value="MINB"
-					on:change={updateLocalStorage}
-				/>
-				MINB
-			</label>
-			<label>
-				<input
-					type="checkbox"
-					bind:group={courses}
-					name="courses"
-					value="MKIB"
-					on:change={updateLocalStorage}
-				/>
-				MKIB
-			</label>
-			<label>
-				<input
-					type="checkbox"
-					bind:group={courses}
-					name="courses"
-					value="INFM"
-					on:change={updateLocalStorage}
-				/>
-				INFM
-			</label>
-		</p>
-	</div>
-	<ul>
-		{#each data.news as newsItem}
-			{#if newsItem.courseOfStudies.findIndex((course) => courses.includes(course)) !== -1}
-				<li>
-					<h2>{newsItem.title}</h2>
-					<h3>{newsItem.subTitle}</h3>
-					<p>{newsItem.content}</p>
-					<p>von {newsItem.nameOwner}</p>
-				</li>
-			{/if}
-		{/each}
-	</ul>
-</main>
+<div class="block">
+	<h2>Studiengänge</h2>
+	<p>
+		<label>
+			<input
+				type="checkbox"
+				bind:group={courses}
+				name="courses"
+				value="INFB"
+				on:change={updateLocalStorage}
+			/>
+			INFB
+		</label>
+		<label>
+			<input
+				type="checkbox"
+				bind:group={courses}
+				name="courses"
+				value="MINB"
+				on:change={updateLocalStorage}
+			/>
+			MINB
+		</label>
+		<label>
+			<input
+				type="checkbox"
+				bind:group={courses}
+				name="courses"
+				value="MKIB"
+				on:change={updateLocalStorage}
+			/>
+			MKIB
+		</label>
+		<label>
+			<input
+				type="checkbox"
+				bind:group={courses}
+				name="courses"
+				value="INFM"
+				on:change={updateLocalStorage}
+			/>
+			INFM
+		</label>
+	</p>
+</div>
+<ul>
+	{#each data.news as newsItem}
+		{#if newsItem.courseOfStudies.findIndex((course) => courses.includes(course)) !== -1}
+			<li>
+				<h2>{newsItem.title}</h2>
+				<h3>{newsItem.subTitle}</h3>
+				<p>{newsItem.content}</p>
+				<p>von {newsItem.nameOwner}</p>
+			</li>
+		{/if}
+	{/each}
+</ul>
 
 <style lang="scss" scoped>
 	label {
@@ -81,7 +79,6 @@
 	ul {
 		list-style: none;
 		padding: 0;
-		margin: 2rem;
 	}
 
 	li,
@@ -95,7 +92,7 @@
 	}
 
 	.block {
-		margin: 2rem;
+		margin-bottom: 2rem;
 	}
 
 	h2 {

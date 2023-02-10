@@ -9,8 +9,8 @@
 		Milestone,
 		Info,
 		Utensils,
-		ExternalLink
-		/* LogIn */
+		ExternalLink,
+		LogIn
 	} from 'lucide-svelte';
 
 	type MenuItems = {
@@ -167,12 +167,21 @@
 		}
 	];
 
-	let urls: { title: string; name?: string; href: string }[] = [];
+	let urls: { title?: string; name?: string; href: string }[] = [];
 	menuItems.forEach((item) => {
 		item.subItems.forEach((subItem) => {
 			urls.push(subItem);
 		});
 	});
+
+	const otherUrls: { name?: string; href: string }[] = [
+		{
+			name: 'Anmeldung zum Intranet sowie zur Praxisbörse für Firmen',
+			href: '/iwii/login'
+		}
+	];
+	// add otherUrls to urls array using concat
+	urls = urls.concat(otherUrls);
 </script>
 
 <svelte:head>
@@ -180,15 +189,19 @@
 		HKA | {urls.find((url) => url.href === $page?.routeId)?.name}
 	</title>
 </svelte:head>
-<div class="layout-topbar">
+<nav class="layout-topbar">
 	<h1>
 		{urls.find((url) => url.href === $page?.routeId)?.name}
 	</h1>
-</div>
+	<a class="login__link" href="/iwii/login">
+		<LogIn size="16" />
+		Login
+	</a>
+</nav>
 <nav class="navbar">
 	<img src="/hka-white.svg" height="60" width="72" alt="HKA Logo" />
 	<ul>
-		{#each menuItems as item, index}
+		{#each menuItems as item}
 			<li class="navbar__list-item">
 				<div class="navbar__item">
 					<svelte:component this={item.icon} size="18" class="navbar__item-icon" />
@@ -206,7 +219,9 @@
 	</ul>
 </nav>
 
-<slot />
+<main>
+	<slot />
+</main>
 
 <style lang="scss">
 	.layout-topbar {
@@ -327,5 +342,29 @@
 				width: 4rem;
 			}
 		}
+	}
+
+	.login__link {
+		display: flex;
+		align-items: center;
+		padding: 0.5rem 1rem;
+		gap: 0.5rem;
+		border: none;
+		border-radius: 4px;
+		background: var(--color-primary);
+		color: var(--color-font);
+		font-size: 0.875rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.08s ease-out;
+		text-decoration: none;
+
+		&:hover {
+			filter: brightness(0.9);
+		}
+	}
+
+	main {
+		padding: 2rem;
 	}
 </style>
