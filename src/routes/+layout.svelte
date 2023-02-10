@@ -177,12 +177,12 @@
 
 <svelte:head>
 	<title>
-		{urls.find((url) => url.href === '/' + $page?.routeId)?.name}
+		HKA | {urls.find((url) => url.href === $page?.routeId)?.name}
 	</title>
 </svelte:head>
 <div class="layout-topbar">
 	<h1>
-		{urls.find((url) => url.href === '/' + $page?.routeId)?.name}
+		{urls.find((url) => url.href === $page?.routeId)?.name}
 	</h1>
 </div>
 <nav class="navbar">
@@ -326,14 +326,6 @@
 				z-index: -1;
 				width: 4rem;
 			}
-		}
-
-		hr {
-			margin: 4px 1rem;
-			width: 4rem;
-			border: none;
-			height: 1px;
-			background: rgb(56, 56, 56);
 		}
 	}
 </style>
