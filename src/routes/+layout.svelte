@@ -9,8 +9,8 @@
 		Milestone,
 		Info,
 		Utensils,
-		ExternalLink,
-		LogIn
+		ExternalLink
+		/* LogIn */
 	} from 'lucide-svelte';
 
 	type MenuItems = {

@@ -1,5 +1,5 @@
 <script>
-	import { onMount } from 'svelte';
+	/* import { onMount } from 'svelte'; */
 
 	/** @type {import('./$types').PageData} */
 	export let data;
