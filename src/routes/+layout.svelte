@@ -305,18 +305,19 @@
 				padding: 4px 16px;
 
 				> li {
-					padding: 8px 8px;
-					border-radius: 4px;
-
+					display: contents;
 					transition: all 0.08s ease-out;
-
-					&:hover {
-						background: #2e2e2e;
-					}
 				}
 
 				a {
 					all: unset;
+					width: calc(100% - 16px);
+					padding: 8px;
+					border-radius: 4px;
+
+					&:hover {
+						background: #2e2e2e;
+					}
 				}
 			}
 
