@@ -20,6 +20,7 @@
 			title: string;
 			name?: string;
 			href: string;
+			target?: string;
 		}[];
 	}[];
 
@@ -71,19 +72,23 @@
 			subItems: [
 				{
 					title: 'Prüfungspläne',
-					href: '/'
+					href: '/iwii/intranet/student/viewexamschedule',
+					name: 'Prüfungspläne'
 				},
 				{
 					title: 'Andere Ausarbeitungen',
-					href: '/'
+					href: '/iwii/intranet/all/download_results',
+					name: 'Download anderer Ausarbeitungen'
 				},
 				{
 					title: 'Anleitungen',
-					href: '/'
+					href: '/iwii/intranet/student/instructions',
+					name: 'Download von Anleitungen'
 				},
 				{
 					title: 'Anträge und Formulare',
-					href: '/'
+					href: '/iwii/intranet/student/hintfiles',
+					name: 'Anträge und Formulare'
 				}
 			]
 		},
@@ -157,11 +162,38 @@
 			subItems: [
 				{
 					title: 'Intranet der Wirtschaftsinformatik',
-					href: '/'
+					href: 'https://www.iwi.hs-karlsruhe.de/intranet',
+					target: '_blank'
 				},
 				{
 					title: 'Ilias-Server',
-					href: '/'
+					href: 'https://ilias.h-ka.de/login.php',
+					target: '_blank'
+				},
+				{
+					title: 'LSF-Server',
+					href: 'https://lsf.hs-karlsruhe.de',
+					target: '_blank'
+				},
+				{
+					title: 'Lehre',
+					href: 'https://www.h-ka.de/lehre',
+					target: '_blank'
+				},
+				{
+					title: 'Bibliothek',
+					href: 'https://www.bibliothek.kit.edu/fbh.php',
+					target: '_blank'
+				},
+				{
+					title: 'Impressum und Datenschutzhinweise',
+					name: 'Impressum und Datenschutzhinweise',
+					href: '/iwii/info/dataprotection'
+				},
+				{
+					title: 'Dokumentation REST-API',
+					href: '/iwii/api/doc.html',
+					target: '_blank'
 				}
 			]
 		}
@@ -209,7 +241,7 @@
 					<ul class="navbar__menu-modal" role="menu">
 						{#each item.subItems as subItem}
 							<li>
-								<a href={subItem.href}>{subItem.title}</a>
+								<a href={subItem.href} target={subItem.target}>{subItem.title}</a>
 							</li>
 						{/each}
 					</ul>
