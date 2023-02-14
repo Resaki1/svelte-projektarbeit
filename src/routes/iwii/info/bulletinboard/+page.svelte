@@ -68,7 +68,7 @@
 				</div>
 				<h4>{newsItem.subTitle}</h4>
 				<p>{newsItem.content}</p>
-				<p>von {newsItem.nameOwner}</p>
+				<p class="newsOwner">von {newsItem.nameOwner}</p>
 			</li>
 		{/if}
 	{/each}
@@ -79,6 +79,11 @@
 		display: inline-flex;
 		margin: 0.5rem;
 		gap: 0.25rem;
+		cursor: pointer;
+
+		& > input {
+			cursor: pointer;
+		}
 	}
 
 	ul {
@@ -114,7 +119,8 @@
 		align-items: center;
 	}
 
-	.newsDate {
+	.newsDate,
+	.newsOwner {
 		font-weight: 100;
 	}
 </style>
