@@ -186,12 +186,12 @@
 
 <svelte:head>
 	<title>
-		HKA | {urls.find((url) => url.href === $page?.routeId)?.name}
+		HKA | {urls.find((url) => url.href === $page?.route.id)?.name}
 	</title>
 </svelte:head>
 <nav class="layout-topbar">
 	<h1>
-		{urls.find((url) => url.href === $page?.routeId)?.name}
+		{urls.find((url) => url.href === $page?.route.id)?.name}
 	</h1>
 	<a class="login__link" href="/iwii/login">
 		<LogIn size="16" />
