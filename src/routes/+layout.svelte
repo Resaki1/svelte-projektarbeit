@@ -223,22 +223,36 @@
 	<slot />
 </main>
 
+<div class="layout-footer">
+	Fakultät für Informatik und Wirtschaftsinformatik, Fachgebiet Informatik
+</div>
+
 <style lang="scss">
-	.layout-topbar {
-		width: 100%;
+	.layout-topbar,
+	.layout-footer {
 		height: 4rem;
 		padding: 0 2.5rem;
 		background: var(--color-gray);
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		justify-content: space-between;
 		box-sizing: border-box;
+	}
+
+	.layout-topbar {
+		justify-content: space-between;
+		position: fixed;
+		width: calc(100% - 6rem);
 
 		h1 {
 			font-size: 1.25rem;
 			font-weight: 600;
 		}
+	}
+
+	.layout-footer {
+		justify-content: end;
+		font-size: 0.875rem;
 	}
 	.navbar {
 		display: flex;
@@ -366,6 +380,8 @@
 	}
 
 	main {
-		padding: 2rem;
+		padding: 6rem 2rem 2rem 2rem;
+		min-height: calc(100vh - 4rem);
+		box-sizing: border-box;
 	}
 </style>
