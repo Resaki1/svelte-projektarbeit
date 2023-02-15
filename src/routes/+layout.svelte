@@ -225,7 +225,7 @@
 	<h1>
 		{urls.find((url) => url.href === $page?.route.id)?.name}
 	</h1>
-	<a class="login__link" href="/iwii/login">
+	<a class="login__link" href="/iwii/login" data-sveltekit-preload-data="hover">
 		<LogIn size="16" />
 		Login
 	</a>
@@ -241,7 +241,9 @@
 					<ul class="navbar__menu-modal" role="menu">
 						{#each item.subItems as subItem}
 							<li>
-								<a href={subItem.href} target={subItem.target}>{subItem.title}</a>
+								<a href={subItem.href} target={subItem.target} data-sveltekit-preload-data="hover"
+									>{subItem.title}</a
+								>
 							</li>
 						{/each}
 					</ul>
