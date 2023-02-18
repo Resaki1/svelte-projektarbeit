@@ -7,7 +7,7 @@
 	<form use:enhance class="login__card" method="POST">
 		<fieldset class="login__field">
 			<label for="login__username">Anmeldename</label>
-			<input type="text" required id="login__username" name="username" />
+			<input type="text" required id="login__username" name="login" />
 		</fieldset>
 		<fieldset class="login__field">
 			<label for="login__password">Passwort</label>

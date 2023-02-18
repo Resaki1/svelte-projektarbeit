@@ -192,7 +192,7 @@
 				},
 				{
 					title: 'Dokumentation REST-API',
-					href: '/iwii/api/doc.html',
+					href: 'https://www.iwi.hs-karlsruhe.de/iwii/api/swagger-ui/index.html',
 					target: '_blank'
 				}
 			]

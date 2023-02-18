@@ -1,6 +1,7 @@
+import { fail } from '@sveltejs/kit';
 import type { BulletinResponse, StudentCouncilNewsResponse } from './apiResponseTypes';
 
-const BASE_URI = 'http://www.iwi.hs-karlsruhe.de/iwii/REST';
+const BASE_URI = 'https://www.iwi.hs-karlsruhe.de/iwii/REST';
 
 export const getBulletinBoard = async (fetch: (url: string) => any): Promise<BulletinResponse> => {
 	return fetch(`${BASE_URI}/newsbulletinboard`)
@@ -73,5 +74,46 @@ export const getStudentCouncilNews = async (
 			return JSON.parse(result);
 		});
 };
+
+export const loginUser = async (
+	fetch: (url: string, body?: any) => any,
+	login: string,
+	password: string
+) => {
+	return fetch(`https://www.iwi.hs-karlsruhe.de/iwii/REST/credential/authentication`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			login,
+			password
+		})
+	})
+		.then(async (response: Response) => await response.json())
+		.catch((error: any) => console.log('error', error));
+};
+
+export const getUserInfo2 = async (fetch: (url: string, body?: any) => any, jwt: string) => {
+	console.log('jwt', jwt);
+	return fetch(`${BASE_URI}/credential/v2/info`, {
+		method: 'GET',
+		headers: {
+			Authorization: `Bearer ${jwt}`
+		}
+	})
+		.then((response: Response) => response.json())
+		.catch((error: any) => console.log('error', error));
+};
+
+export const getUserInfo = async (fetch: (url: string, body?: any) => any, jwt: string) =>
+	fetch(`${BASE_URI}/credential/v2/info`, {
+		method: 'GET',
+		headers: {
+			Authorization: `Bearer ${jwt}`
+		}
+	})
+		.then((response: any) => response.json())
+		.catch((error: any) => fail(401, error));
 
 export {};
