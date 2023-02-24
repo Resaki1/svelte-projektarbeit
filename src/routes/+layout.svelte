@@ -225,10 +225,12 @@
 	<h1>
 		{urls.find((url) => url.href === $page?.route.id)?.name}
 	</h1>
-	<a class="login__link" href="/iwii/login" data-sveltekit-preload-data="hover">
-		<LogIn size="16" />
-		Login
-	</a>
+	{#if !$page.data.user.adsName}
+		<a class="login__link" href="/iwii/login" data-sveltekit-preload-data="hover">
+			<LogIn size="16" />
+			Login
+		</a>
+	{/if}
 </nav>
 <nav class="navbar">
 	<img src="/hka-white.svg" height="60" width="72" alt="HKA Logo" />

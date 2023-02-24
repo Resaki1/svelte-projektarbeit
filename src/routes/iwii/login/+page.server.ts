@@ -4,7 +4,7 @@ import { redirect } from '@sveltejs/kit';
 
 /** @type {import('./$types').Actions} */
 export const actions = {
-	default: async ({ cookies, request, fetch }: any) => {
+	default: async ({ cookies, request, fetch, locals }: any) => {
 		const data = await request.formData();
 		const login = data.get('login');
 		const password = data.get('password');
@@ -21,11 +21,7 @@ export const actions = {
 				expires: new Date(response.tokenExpiration)
 			});
 
-			cookies.set('user', JSON.stringify(userInfo), {
-				path: '/',
-				secure: !dev,
-				expires: new Date(response.tokenExpiration)
-			});
+			locals.user = userInfo;
 
 			throw redirect(307, '/');
 		}

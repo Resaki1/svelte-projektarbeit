@@ -94,18 +94,6 @@ export const loginUser = async (
 		.catch((error: any) => console.log('error', error));
 };
 
-export const getUserInfo2 = async (fetch: (url: string, body?: any) => any, jwt: string) => {
-	console.log('jwt', jwt);
-	return fetch(`${BASE_URI}/credential/v2/info`, {
-		method: 'GET',
-		headers: {
-			Authorization: `Bearer ${jwt}`
-		}
-	})
-		.then((response: Response) => response.json())
-		.catch((error: any) => console.log('error', error));
-};
-
 export const getUserInfo = async (fetch: (url: string, body?: any) => any, jwt: string) =>
 	fetch(`${BASE_URI}/credential/v2/info`, {
 		method: 'GET',
