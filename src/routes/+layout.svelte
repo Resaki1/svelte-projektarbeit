@@ -10,7 +10,8 @@
 		Info,
 		Utensils,
 		ExternalLink,
-		LogIn
+		LogIn,
+		LogOut
 	} from 'lucide-svelte';
 
 	type MenuItems = {
@@ -229,6 +230,12 @@
 		<a class="login__link" href="/iwii/login" data-sveltekit-preload-data="hover">
 			<LogIn size="16" />
 			Login
+		</a>
+	{/if}
+	{#if $page.data.user.adsName}
+		<a href="/logout" data-sveltekit-reload class="login__link">
+			<LogOut size="16" />
+			Logout
 		</a>
 	{/if}
 </nav>
