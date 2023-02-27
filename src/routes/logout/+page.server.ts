@@ -1,7 +1,7 @@
 import { dev } from '$app/environment';
 import { redirect } from '@sveltejs/kit';
 
-export const load = async ({ cookies }: any) => {
+export const load = ({ cookies }: any) => {
 	cookies.set('jwt', '', {
 		path: '/',
 		expires: new Date(0),

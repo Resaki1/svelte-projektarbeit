@@ -61,11 +61,13 @@ export const menuItems: MenuItems = [
 		subItems: [
 			{
 				title: 'Editor',
-				href: '/'
+				name: 'Stundenplan-Editor',
+				href: '/iwii/faces/intranet/student/timetable/editor'
 			},
 			{
 				title: 'Persönlicher Plan',
-				href: '/'
+				name: 'Persönlicher Plan',
+				href: '/iwii/faces/intranet/student/timetable/personal'
 			}
 		]
 	},
