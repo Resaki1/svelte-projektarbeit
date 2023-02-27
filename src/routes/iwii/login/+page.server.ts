@@ -20,8 +20,11 @@ export const actions = {
 				secure: !dev,
 				expires: new Date(response.tokenExpiration)
 			});
-
-			locals.user = userInfo;
+			cookies.set('basic', Buffer.from(`${login}:${password}`).toString('base64'), {
+				path: '/',
+				secure: !dev,
+				expires: new Date(response.tokenExpiration)
+			});
 
 			throw redirect(307, '/');
 		}

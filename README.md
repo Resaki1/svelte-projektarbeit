@@ -58,4 +58,4 @@ You can preview the production build with `npm run preview`.
 |                   | Performance | Accessibility | Best Practices | SEO | PWA |
 | ----------------- | ----------- | ------------- | -------------- | --- | --- |
 | Official Intranet | 86          | 78            | 100            | 80  | no  |
-| SvelteKit         | 100         | 100           | 100            | 100 | yes |
+| SvelteKit         | 99          | 100           | 100            | 100 | yes |
