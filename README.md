@@ -50,12 +50,14 @@ You can preview the production build with `npm run preview`.
 
 ## Drawbacks
 
-- no default service worker, needs to be written manually
 - all pages must be called "+page.svelte" which makes it confusing once you have more than one (which is usually the case)
+- very small ecosystem and general info online compared to e.g., React
+- issues with SSR when trying to use third-party components
+- no default service worker, needs to be written manually
 
 ## Lighthouse score comparison
 
 |                   | Performance | Accessibility | Best Practices | SEO | PWA |
 | ----------------- | ----------- | ------------- | -------------- | --- | --- |
 | Official Intranet | 86          | 78            | 100            | 80  | no  |
-| SvelteKit         | 99          | 100           | 100            | 100 | yes |
+| SvelteKit         | 100         | 100           | 100            | 100 | yes |

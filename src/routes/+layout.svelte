@@ -80,6 +80,7 @@
 		flex-direction: row;
 		align-items: center;
 		box-sizing: border-box;
+		z-index: 1;
 	}
 
 	.layout-topbar {
@@ -108,6 +109,7 @@
 		top: 0;
 		background: var(--color-gray);
 		border-right: 1px solid var(--color-gray-light);
+		z-index: 1;
 
 		ul {
 			list-style: none;

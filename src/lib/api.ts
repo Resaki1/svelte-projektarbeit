@@ -1,5 +1,9 @@
 import { fail } from '@sveltejs/kit';
-import type { BulletinResponse, StudentCouncilNewsResponse } from './apiResponseTypes';
+import type {
+	BulletinResponse,
+	StudentCouncilNewsResponse,
+	TimetableEntries
+} from './apiResponseTypes';
 
 const BASE_URI = 'https://www.iwi.hs-karlsruhe.de/iwii/REST';
 
@@ -107,7 +111,7 @@ export const getUserInfo = async (fetch: (url: string, body?: any) => any, jwt: 
 export const getPersonalTimetable = async (
 	fetch: (url: string, body?: any) => any,
 	basic: string
-) =>
+): Promise<TimetableEntries> =>
 	fetch(`${BASE_URI}/studenttimetable/timetable/v2`, {
 		method: 'GET',
 		headers: {

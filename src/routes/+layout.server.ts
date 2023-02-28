@@ -5,7 +5,7 @@ export async function load({ fetch, cookies }: any) {
 	const jwt = cookies.get('jwt');
 	const basic = cookies.get('basic');
 
-	const user = await getUserInfo(fetch, jwt);
+	const user = jwt ? await getUserInfo(fetch, jwt) : undefined;
 	return {
 		user: {
 			...user,
