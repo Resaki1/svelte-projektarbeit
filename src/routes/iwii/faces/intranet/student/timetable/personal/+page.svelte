@@ -5,6 +5,7 @@
 	import ListWeek from '@event-calendar/list';
 	import '@event-calendar/core/index.css';
 	import { page } from '$app/stores';
+	import './calendar.scss';
 
 	let plugins = [TimeGrid, DayGrid, ListWeek];
 	let options = {
@@ -14,7 +15,7 @@
 		headerToolbar: {
 			start: 'prev,next today',
 			center: 'title',
-			end: 'dayGridMonth timeGridWeek, timeGridDay, listWeek'
+			end: 'timeGridDay,timeGridWeek,dayGridMonth listWeek'
 		},
 		buttonText: {
 			today: 'Heute',

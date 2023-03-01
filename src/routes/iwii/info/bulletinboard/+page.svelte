@@ -94,7 +94,7 @@
 	li,
 	.block {
 		padding: 1rem;
-		background: #1e1e1e;
+		background-color: var(--color-gray);
 		margin-bottom: 1rem;
 		box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%),
 			0 1px 3px 0 rgb(0 0 0 / 12%);
