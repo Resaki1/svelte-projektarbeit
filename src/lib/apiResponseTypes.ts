@@ -29,7 +29,7 @@ export type StudentCouncilNewsResponse = {
 	title: string;
 };
 
-export type TimetableEntries = {
+export type TimetableEntry = {
 	id: number;
 	entry: {
 		id: number;
@@ -72,4 +72,6 @@ export type TimetableEntries = {
 		idLocations: number[];
 		idLecturers: number[];
 	};
-}[];
+};
+
+export type TimetableEntries = TimetableEntry[];

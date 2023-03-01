@@ -76,7 +76,8 @@ export const getStudentCouncilNews = async (
 		)
 		.then((result: string) => {
 			return JSON.parse(result);
-		});
+		})
+		.catch((error: any) => console.log(error));
 };
 
 export const loginUser = async (
@@ -149,4 +150,5 @@ export const getPersonalTimetable = async (
 		)
 		.then((result: string) => {
 			return JSON.parse(result);
-		});
+		})
+		.catch((error: any) => console.log(error));

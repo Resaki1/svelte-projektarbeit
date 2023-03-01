@@ -30,7 +30,6 @@
 		nowIndicator: true,
 		noEventsContent: 'Keine Termine'
 	};
-	console.log($page.data.events);
 </script>
 
 <Calendar {plugins} {options} />

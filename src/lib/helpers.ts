@@ -1,11 +1,11 @@
-import type { TimetableEntries } from './apiResponseTypes';
+import type { TimetableEntries, TimetableEntry } from './apiResponseTypes';
 
 export const formatDateString = (dateString: string): string => {
 	const date = new Date(dateString);
 	return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
 };
 
-type CalenderEvent = {
+type CalendarEvent = {
 	id: string;
 	resourceIds?: string[];
 	allDay?: boolean;
@@ -21,28 +21,42 @@ type CalenderEvent = {
 	extendedProps?: object;
 };
 
-function createDateObject(dateString: string, timeInMinutes: number, dayOffset: number): Date {
-	const dateParts = dateString.split('-').map((part) => parseInt(part));
-	const hour = Math.floor(timeInMinutes / 60 + 2);
-	const minutes = timeInMinutes % 60;
-	const year = dateParts[0];
-	const month = dateParts[1] - 1; // Months are 0-11
-	const date = dateParts[2] + dayOffset;
-	return new Date(year, month, date, hour, minutes);
-}
+export const getDates = (entries: TimetableEntries): CalendarEvent[] => {
+	const dates: CalendarEvent[] = [];
+	entries.forEach((entry) => {
+		const { startTime, endTime, day, interval, firstDate, lastDate, id, title } = entry.entry;
 
-export const mapTimetableEntries = (timetableEntries: TimetableEntries): CalenderEvent[] => {
-	return timetableEntries.map((value) => {
-		/*  firstDate: '2022-09-26',
-			startTime: 840,
-      		endTime: 985,
-			interval: 'WEEKLY', */
-		const entry = value.entry;
-		return {
-			id: entry.id.toString(),
-			start: createDateObject(entry.firstDate, entry.startTime, entry.day),
-			end: createDateObject(entry.firstDate, entry.endTime, entry.day),
-			title: entry.lectureName
-		};
+		const first = new Date(firstDate);
+		first.setDate(first.getDate() + day + 2);
+		const last = new Date(lastDate);
+		last.setDate(last.getDate() + day + 3);
+
+		const currentDate = new Date(first);
+		let daysBetween;
+		switch (interval) {
+			case 'DAILY':
+				daysBetween = 1;
+				break;
+			case 'WEEKLY':
+				daysBetween = 7;
+				break;
+			case 'BIWEEKLY':
+				daysBetween = 14;
+				break;
+			default:
+				daysBetween = 7;
+		}
+
+		while (currentDate <= last) {
+			const start = new Date(currentDate);
+			const end = new Date(currentDate);
+			start.setHours(Math.floor(startTime / 60), startTime % 60, 0);
+			end.setHours(Math.floor(endTime / 60), endTime % 60, 0);
+			dates.push({ id: id.toString(), title, start, end });
+
+			currentDate.setDate(currentDate.getDate() + daysBetween);
+		}
 	});
+
+	return dates;
 };
