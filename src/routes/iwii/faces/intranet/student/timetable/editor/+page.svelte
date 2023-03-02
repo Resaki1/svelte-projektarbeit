@@ -16,7 +16,7 @@
 		return entries;
 	};
 
-	let selectedCourseOfStudies = 'INFM';
+	let selectedCourseOfStudies = $page.data.user.student.courseOfStudies ?? 'INFB';
 	let selectedSemester = 1;
 
 	const updateEvents = () => {
