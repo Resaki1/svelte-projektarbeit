@@ -45,13 +45,15 @@
 						{#if item.subItems}
 							<ul class="navbar__menu-modal" role="menu">
 								{#each item.subItems as subItem}
-									<li>
-										<a
-											href={subItem.href}
-											target={subItem.target}
-											data-sveltekit-preload-data="hover">{subItem.title}</a
-										>
-									</li>
+									{#if !subItem.requiresAuth || $page.data.user.adsName}
+										<li>
+											<a
+												href={subItem.href}
+												target={subItem.target}
+												data-sveltekit-preload-data="hover">{subItem.title}</a
+											>
+										</li>
+									{/if}
 								{/each}
 							</ul>
 						{/if}

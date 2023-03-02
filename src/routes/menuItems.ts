@@ -21,6 +21,7 @@ type MenuItems = {
 		name?: string;
 		href: string;
 		target?: string;
+		requiresAuth?: boolean;
 	}[];
 }[];
 
@@ -57,17 +58,23 @@ export const menuItems: MenuItems = [
 	{
 		title: `Stunden\u00ADpläne`,
 		icon: CalendarDays,
-		requiresAuth: true,
 		subItems: [
+			{
+				title: 'Stundenpläne',
+				name: 'Alle Stundenpläne',
+				href: '/iwii/faces/intranet/student/timetable/all'
+			},
 			{
 				title: 'Editor',
 				name: 'Stundenplan-Editor',
-				href: '/iwii/faces/intranet/student/timetable/editor'
+				href: '/iwii/faces/intranet/student/timetable/editor',
+				requiresAuth: true
 			},
 			{
 				title: 'Persönlicher Plan',
 				name: 'Persönlicher Plan',
-				href: '/iwii/faces/intranet/student/timetable/personal'
+				href: '/iwii/faces/intranet/student/timetable/personal',
+				requiresAuth: true
 			}
 		]
 	},
