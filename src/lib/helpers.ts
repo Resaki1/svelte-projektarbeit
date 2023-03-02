@@ -24,7 +24,8 @@ type CalendarEvent = {
 export const getDates = (entries: TimetableEntries): CalendarEvent[] => {
 	const dates: CalendarEvent[] = [];
 	entries.forEach((entry) => {
-		const { startTime, endTime, day, interval, firstDate, lastDate, id, title } = entry.entry;
+		const { startTime, endTime, day, interval, firstDate, lastDate, id, title } =
+			entry.entry ?? entry;
 
 		const first = new Date(firstDate);
 		first.setDate(first.getDate() + day + 2);
@@ -40,7 +41,7 @@ export const getDates = (entries: TimetableEntries): CalendarEvent[] => {
 			case 'WEEKLY':
 				daysBetween = 7;
 				break;
-			case 'BIWEEKLY':
+			case 'FORTNIGHTLY':
 				daysBetween = 14;
 				break;
 			default:
@@ -59,4 +60,13 @@ export const getDates = (entries: TimetableEntries): CalendarEvent[] => {
 	});
 
 	return dates;
+};
+
+export const mapSemesterTimetablestoEntries = (timetables: TimetableEntries): TimetableEntries => {
+	const entries: TimetableEntries = [];
+	console.log(timetables);
+	timetables.forEach((timetable) => {
+		entries.push(timetable);
+	});
+	return entries;
 };

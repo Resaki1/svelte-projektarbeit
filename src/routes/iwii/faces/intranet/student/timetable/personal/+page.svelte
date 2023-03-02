@@ -5,10 +5,10 @@
 	import ListWeek from '@event-calendar/list';
 	import '@event-calendar/core/index.css';
 	import { page } from '$app/stores';
-	import './calendar.scss';
+	import '../calendar.scss';
 
-	let plugins = [TimeGrid, DayGrid, ListWeek];
-	let options = {
+	const plugins = [TimeGrid, DayGrid, ListWeek];
+	const options = {
 		view: 'timeGridWeek',
 		events: $page.data.events,
 		firstDay: 1,

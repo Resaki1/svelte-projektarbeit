@@ -75,3 +75,17 @@ export type TimetableEntry = {
 };
 
 export type TimetableEntries = TimetableEntry[];
+
+export type AllTimetables = {
+	[key: number]: {
+		courseOfStudies: string;
+		moduleSpecialization: number;
+		semester: number;
+		semesterName: string | null;
+		timetables: {
+			[key: number]: {
+				entries: TimetableEntries;
+			};
+		}[];
+	}[];
+};
