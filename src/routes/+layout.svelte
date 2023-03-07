@@ -5,9 +5,11 @@
 
 	let urls: { title?: string; name?: string; href: string }[] = [];
 	menuItems.forEach((item) => {
-		item.subItems?.forEach((subItem) => {
-			urls.push(subItem);
-		});
+		if (item.subItems)
+			item.subItems?.forEach((subItem) => {
+				urls.push(subItem);
+			});
+		else urls.push(item);
 	});
 </script>
 
