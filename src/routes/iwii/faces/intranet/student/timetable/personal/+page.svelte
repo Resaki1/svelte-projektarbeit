@@ -6,11 +6,12 @@
 	import '@event-calendar/core/index.css';
 	import { page } from '$app/stores';
 	import '../calendar.scss';
+	import { getDates } from '$lib/helpers';
 
 	const plugins = [TimeGrid, DayGrid, ListWeek];
 	const options = {
 		view: 'timeGridWeek',
-		events: $page.data.events,
+		events: getDates($page.data.events),
 		firstDay: 1,
 		headerToolbar: {
 			start: 'prev,next today',

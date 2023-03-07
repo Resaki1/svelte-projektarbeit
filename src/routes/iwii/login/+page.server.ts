@@ -20,7 +20,7 @@ export const actions = {
 				secure: !dev,
 				expires: new Date(response.tokenExpiration)
 			});
-			cookies.set('basic', Buffer.from(`${login}:${password}`).toString('base64'), {
+			cookies.set('basic', btoa(`${login}:${password}`), {
 				path: '/',
 				secure: !dev,
 				expires: new Date(response.tokenExpiration)
