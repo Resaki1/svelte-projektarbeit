@@ -1,4 +1,4 @@
-import type { TimetableEntries, TimetableEntry } from './apiResponseTypes';
+import type { TimetableEntries } from './apiResponseTypes';
 
 export const formatDateString = (dateString: string): string => {
 	const date = new Date(dateString);

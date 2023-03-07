@@ -26,7 +26,7 @@ export const actions = {
 				expires: new Date(response.tokenExpiration)
 			});
 
-			throw redirect(307, '/');
+			throw redirect(307, '/iwii/info/bulletinboard');
 		}
 	}
 };
